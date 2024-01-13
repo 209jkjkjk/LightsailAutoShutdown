@@ -19,7 +19,7 @@ def writeHtml(id, region, js):
     time_str = datetime.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
     time_ts=datetime.datetime.now().timestamp()
     styleA='style="background-color:rgb(214, 58, 58)"'
-    f.write('<p><span> ID= '+js['id']+' ----- Region= '+js['region']+' ----- UpdateTime= '+time_str+'</span><span style="color:red;" id="%s"></span></p>'%(id+region))
+    f.write('<meta charset="UTF-8"><p><span> ID= '+js['id']+' ----- Region= '+js['region']+' ----- UpdateTime= '+time_str+'</span><span style="color:red;" id="%s"></span></p>'%(id+region))
     f.write('<script language="javascript">function %s() {document.getElementById("%s").innerHTML = "    距上次更新："+Math.round(new Date().getTime()/1000-%d)+"秒  若过大请检查是否有后台监控掉线";}setInterval(%s,1000);</script>'
             %(id+region.replace('-','_'),id+region,time_ts,id+region.replace('-','_')))
     f.write('''<table style="border:3px #cccccc solid;" cellpadding="10" border='1'>
